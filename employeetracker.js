@@ -1,17 +1,12 @@
-ar mysql = require("mysql");
-var inquirer = require("inquirer");
+const mysql = require("mysql");
+const inquirer = require("inquirer");
+const cTable = require("console.table"); 
 
 // create the connection information for the sql database
 var connection = mysql.createConnection({
   host: "localhost",
-
-  // Your port; if not 3306
   port: 3306,
-
-  // Your username
   user: "root",
-
-  // Your password
   password: "12345678",
   database: "employee_trackerDB"
 });
@@ -23,3 +18,27 @@ connection.connect(function(err) {
   start();
 });
 
+//function to prompt user on what they would like to do
+function start () {
+  inquirer.prompt ({
+    type: "list", 
+    name: "choice", 
+    message: "What would you like to do?", 
+    choices: [
+      "Add Department", 
+      "Add Role", 
+      "Add Employee", 
+      "View Departments", 
+      "View Roles", 
+      "View Employees", 
+      "View Employees by Managers",
+      "Update Employee Roles", 
+      "Update Employee Managers",
+      "Delete Departments", 
+      "Delete Roles", 
+      "Delete Employees", 
+      "View Budget by Department",
+      "Exit"
+    ]
+  })
+}
