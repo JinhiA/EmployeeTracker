@@ -112,7 +112,7 @@ function addRole() {
       {
         name: "addTitle",
         type: "input",
-        message: "What role would you like to add?"
+        message: "What is the title of the employee you want to add?"
       },
       {
         name: "addSalary",
