@@ -127,7 +127,7 @@ function addRole() {
     ]).then((answer) => {
     connection.query("INSERT INTO role SET ?", { title: answer.addTitle, salary: answer.addSalary, department_id: answer.addDeptId}, (err, res) => {
       if (err) return err;
-      console.log("\n DEPARTMENT ADDED...\n ");
+      console.log("\n ROLE ADDED...\n ");
       console.table(answer); 
       start();
     });
