@@ -110,22 +110,22 @@ function addDepartment() {
 function addRole() {
     inquirer.prompt([
       {
-        name: "title",
+        name: "addTitle",
         type: "input",
         message: "What role would you like to add?"
       },
       {
-        name: "salary",
+        name: "addSalary",
         type: "input",
         message: "What is the salary for this role?"
       },
       {
-        name: "department",
+        name: "addDeptId",
         type: "input",
-        message: "What is the department name for this role?"
+        message: "What is the department id for this role?"
       }
     ]).then((answer) => {
-    connection.query("INSERT INTO role SET ?", { title: answer.add, salary: answer.addsalary, department_id: answer.addDeptId}, (err, res) => {
+    connection.query("INSERT INTO role SET ?", { title: answer.addTitle, salary: answer.addSalary, department_id: answer.addDeptId}, (err, res) => {
       if (err) return err;
       console.log("\n DEPARTMENT ADDED...\n ");
       console.table(answer); 
