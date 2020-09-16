@@ -37,7 +37,6 @@ function start() {
       "Delete Departments",
       "Delete Roles",
       "Delete Employees",
-      "View Budget by Department",
       "Exit"
     ]
   })
@@ -136,6 +135,11 @@ function addRole() {
 
 //function to add employee 
 
+function addEmployee() {
+  inquirer.prompt ({
+    
+  })
+}
 //function to view all departments 
 
 //function to view all roles
@@ -154,4 +158,3 @@ function addRole() {
 
 //function to delete employees
 
-//function to view budget by departments
