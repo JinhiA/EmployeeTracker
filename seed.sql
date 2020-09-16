@@ -26,6 +26,9 @@ VALUE ("Software Engineer", 120000, 2);
 INSERT INTO role (title, salary, department_id)
 VALUE ("Lawyer", 190000, 4);
 
+//Employee seeds
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+
 //Selectors 
 SELECT * FROM department;
 SELECT * FROM role;
