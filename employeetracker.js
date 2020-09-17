@@ -34,7 +34,6 @@ connection.connect(function (err) {
       "View Employees",
       "View Employees by Managers",
       "Update Employee Roles",
-      "Update Employee Managers",
       "Delete Departments",
       "Delete Roles",
       "Delete Employees",
@@ -62,15 +61,9 @@ connection.connect(function (err) {
         case "View Employees":
           viewEmployees();
           break;
-        // case "View Employees by Managers":
-        //   viewByManagers();
-        //   break;
         case "Update Employee Roles":
           updateRole();
           break;
-        // case "Update Employee Managers":
-        //   updateManager();
-        //   break;
         // case "Delete Department":
         //   deleteDept();
         //   break;
@@ -120,9 +113,10 @@ function addRole() {
       type: "list",
       message: "What is the title of the employee you want to add?", 
       choices: [
-        "Sales Lead",
         "Salesperson",
+        "Sales Lead",
         "Software Engineer",
+        "Lead Engineer",
         "Account Manager",
         "Accountant",
         "Legal Team Lead"
@@ -177,25 +171,43 @@ function addEmployee() {
 
 //function to view all departments 
 function viewDepartments() {
-  connection.query("SELECT * FROM department", function (err, answer) {
+  connection.query("SELECT name FROM department", function (err, answer) {
+    for( let i = 0; i < result.length; i++); 
+    if (err) {
+      throw err;
+    } else {
+    console.log(result); 
     console.table(answer);
     start();
+    }
   });
 }
 
 //function to view all roles 
 function viewRoles() {
-  connection.query("SELECT * FROM role", function (err, answer) {
+  connection.query("SELECT title FROM role", function (err, result) {
+    for( let i = 0; i < result.length; i++); 
+    if (err) {
+      throw err;
+    } else {
+    console.log(result); 
     console.table(answer);
     start();
+    }
   });
 }
 
 //function to view all employees
 function viewEmployees() {
-  connection.query("SELECT * FROM employee", function (err, answer) {
+  connection.query("SELECT first_name FROM employee", function (err, result) {
+    for( let i = 0; i < result.length; i++); 
+    if (err) {
+      throw err;
+    } else {
+    console.log(result); 
     console.table(answer);
     start();
+    }
   });
 }
 
